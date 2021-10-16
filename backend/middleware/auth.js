@@ -1,3 +1,4 @@
+// require('dotenv').config();
 const jwt = require('jsonwebtoken');
 
 
@@ -12,9 +13,9 @@ module.exports = (req, res, next) => {
             next();
         }
     }catch (error){
-        // res.status(401).json({error | 'Requête non authentifié !'});
-        res.status(401).json({
-            error: new Error('Invalid request!')
-          });
+        res.status(401).json({error: error | 'Requête non authentifié !'});
+        // res.status(401).json({
+        //     error: new Error('requête Invalide!')
+        //   });
     }
 };
